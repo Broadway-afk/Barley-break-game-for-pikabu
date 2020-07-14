@@ -1,0 +1,15 @@
+@import "variables.css";
+@import "range-input.css";
+@import "tiles.css";
+
+body {
+    background-color: var(--layout-background);
+}
+.container {
+    margin: 40px auto;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+}

@@ -1,0 +1,60 @@
+@import "variables.css";
+
+#tiles-area {
+    background-color: var(--element-background);
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+.tile {
+    background-color: #8ac858;
+    background-image: url('https://cs.pikabu.ru/images/jobseeker/logo2.png');
+    cursor: pointer;
+    transition: top 600ms linear, left 600ms linear;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+}
+#tiles-area.shuffled .tile{
+    transition: top 400ms linear, left 400ms linear;
+}
+.tile::after {
+    content: '';
+    display: block;
+    border-radius: 3px;
+    border: 1px solid;
+    border-color: var(--green-shade-2) var(--green-shade-3) var(--green-shade-3) var(--green-shade-2);
+    width: calc(100% - 2px);
+    height:calc(100% - 2px);
+}
+.tile.void {
+    background: transparent;
+    border: none;
+    transition: unset;
+}
+.tile.void::after {
+    display: none;
+}
+.tileWithErrorAnimation {
+    animation: errorAnimation 150ms ease-out 4;
+}
+@keyframes errorAnimation {
+    0% {
+        transform: translateX(0);
+        z-index: 1;
+    }
+    25% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+        z-index: auto;
+    }
+}
