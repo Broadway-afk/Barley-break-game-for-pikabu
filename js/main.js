@@ -30,16 +30,18 @@ class Tiles {
 
     while (list.length < Math.pow(this.tileInRowAmount, 2)) {
       let tile = document.createElement('div');
+      let calcPercent = 100 / this.tileInRowAmount;
+      let calcBackgroundPercent = 100 / (this.tileInRowAmount - 1);
       tile.style.cssText = `
         background-position: 
-          ${100/(this.tileInRowAmount - 1) * elementInGridPosition.x}% 
-          ${100/(this.tileInRowAmount - 1) * elementInGridPosition.y}%
+          ${calcBackgroundPercent * elementInGridPosition.x}% 
+          ${calcBackgroundPercent * elementInGridPosition.y}%
         ;
         background-size: ${this.sizeList.area}px;
-        left: ${100/(this.tileInRowAmount) * elementInGridPosition.x}%;
-        top: ${100/(this.tileInRowAmount) * elementInGridPosition.y}%; 
-        height: ${100/(this.tileInRowAmount)}%;
-        width: ${100/(this.tileInRowAmount)}%;
+        left: ${calcPercent * elementInGridPosition.x}%;
+        top: ${calcPercent * elementInGridPosition.y}%; 
+        height: ${calcPercent}%;
+        width: ${calcPercent}%;
       `;
       tile.classList.add('tile');
       tile.coordinates = {};
